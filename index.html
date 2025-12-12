@@ -134,12 +134,18 @@
                 break-inside: avoid;
             }
             
+            /* تحسين رؤية أيقونة علامة الصح */
+             .feature-list li::before {
+                font-size: 12pt !important; 
+                top: 0 !important;
+            }
+            
             /* 1. تثبيت عرض أعمدة جدول الميزات الوظيفية */
             .table-features th:nth-child(1), .table-features td:nth-child(1) { width: 20% !important; }
             .table-features th:nth-child(2), .table-features td:nth-child(2) { width: 60% !important; }
             .table-features th:nth-child(3), .table-features td:nth-child(3) { width: 20% !important; }
 
-            /* 2. تثبيت عرض أعمدة جدول الشروط المالية (تم تعديل النسب قليلاً) */
+            /* 2. تثبيت عرض أعمدة جدول الشروط المالية (تم تعديل النسب) */
             .table-finance-main th:nth-child(1), .table-finance-main td:nth-child(1) { width: 20% !important; }
             .table-finance-main th:nth-child(2), .table-finance-main td:nth-child(2) { width: 55% !important; }
             .table-finance-main th:nth-child(3), .table-finance-main td:nth-child(3) { width: 25% !important; }
@@ -151,11 +157,21 @@
             .table-maintenance th:nth-child(3), .table-maintenance td:nth-child(3) { width: 25% !important; }
             .table-maintenance td:nth-child(2) { text-align: left !important; }
 
-            /* الألوان وجودة الحدود */
-            table, th, td { border-color: #444444 !important; }
-            .bg-blue-50, .bg-gray-50, .bg-green-50, .bg-yellow-50, .bg-green-100 { background-color: #eeeeee !important; }
-            .bg-gray-200 { background-color: #d4d4d4 !important; color: #1a4d7d !important; }
-            .bg-gray-300 { background-color: #bfbfbf !important; }
+            /* الألوان وجودة الحدود (تم تعزيز الحدود هنا) */
+            table, th, td { 
+                border: 1px solid #444444 !important; 
+                border-color: #444444 !important;
+            }
+            .bg-blue-50, .bg-gray-50, .bg-green-50, .bg-yellow-50, .bg-green-100 {
+                background-color: #eeeeee !important;
+            }
+            .bg-gray-200 {
+                background-color: #d4d4d4 !important;
+                color: #1a4d7d !important;
+            }
+            .bg-gray-300 {
+                background-color: #bfbfbf !important;
+            }
         }
     </style>
 </head>

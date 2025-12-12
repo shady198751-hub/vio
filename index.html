@@ -75,7 +75,7 @@
         /* إلغاء هوامش الورقة الافتراضية لزيادة مساحة المحتوى */
         @page {
             margin: 0 !important;
-            size: auto !important; /* السماح للمتصفح باختيار مقاس الورقة */
+            size: auto !important;
         }
 
         @media print {
@@ -90,7 +90,6 @@
                 margin: 0 !important;
                 padding: 0 !important;
                 overflow: hidden !important;
-                -webkit-print-color-adjust: exact;
             }
             .proposal-container {
                 max-width: 100% !important;
@@ -115,6 +114,7 @@
                 display: flex !important;
                 align-items: center !important;
                 justify-content: space-between !important;
+                width: 100% !important; /* ضمان العرض الكامل */
             }
             .bg-accent-teal {
                 display: none !important;
@@ -127,7 +127,7 @@
             .main-heading { font-size: 14pt !important; color: #ffffff !important; }
             .sub-heading { font-size: 12pt !important; color: #000000 !important; }
             .w-20, .h-20 { width: 35px !important; height: 35px !important; }
-            .text-xl { font-size: 14pt !important; } /* زيادة وضوح تحية الافتتاح */
+            .text-xl { font-size: 14pt !important; } 
 
             /* منع انقسام الجداول والأقسام الهامة وتثبيت عرض الجدول */
             table {
@@ -135,7 +135,9 @@
                 break-inside: avoid;
                 table-layout: fixed !important;
                 width: 100% !important;
-                margin-top: 0.4cm !important; /* تقليل الهامش بين الجداول */
+                margin-top: 0.4cm !important;
+                border-collapse: separate !important; /* إصلاح مشكلة اختفاء الحدود */
+                border-spacing: 0 !important;
             }
             section {
                 page-break-inside: avoid;
@@ -148,24 +150,9 @@
                 top: 0 !important;
             }
             
-            /* 1. تثبيت عرض أعمدة جدول الميزات الوظيفية */
-            .table-features th:nth-child(1), .table-features td:nth-child(1) { width: 20% !important; }
-            .table-features th:nth-child(2), .table-features td:nth-child(2) { width: 60% !important; }
-            .table-features th:nth-child(3), .table-features td:nth-child(3) { width: 20% !important; }
-
-            /* 2. تثبيت عرض أعمدة جدول الشروط المالية */
-            .table-finance-main th:nth-child(1), .table-finance-main td:nth-child(1) { width: 20% !important; }
-            .table-finance-main th:nth-child(2), .table-finance-main td:nth-child(2) { width: 55% !important; }
-            .table-finance-main th:nth-child(3), .table-finance-main td:nth-child(3) { width: 25% !important; }
-
-            /* 3. تثبيت عرض أعمدة جدول الصيانة والدعم */
-            .table-maintenance th:nth-child(1), .table-maintenance td:nth-child(1) { width: 55% !important; }
-            .table-maintenance th:nth-child(2), .table-maintenance td:nth-child(2) { width: 20% !important; }
-            .table-maintenance th:nth-child(3), .table-maintenance td:nth-child(3) { width: 25% !important; }
-
             /* الألوان وجودة الحدود (تم تعزيز الحدود هنا) */
             table, th, td { 
-                border: 1px solid #444444 !important; 
+                border: 1px solid #444444 !important; /* تحديد الحدود بشكل صريح */
                 border-color: #444444 !important;
             }
             .bg-blue-50, .bg-gray-50, .bg-green-50, .bg-yellow-50, .bg-green-100 {
@@ -178,6 +165,23 @@
             .bg-gray-300 {
                 background-color: #bfbfbf !important;
             }
+
+            /* 1. تثبيت عرض أعمدة جدول الميزات الوظيفية */
+            .table-features th:nth-child(1), .table-features td:nth-child(1) { width: 20% !important; }
+            .table-features th:nth-child(2), .table-features td:nth-child(2) { width: 60% !important; }
+            .table-features th:nth-child(3), .table-features td:nth-child(3) { width: 20% !important; }
+
+            /* 2. تثبيت عرض أعمدة جدول الشروط المالية */
+            .table-finance-main th:nth-child(1), .table-finance-main td:nth-child(1) { width: 20% !important; }
+            .table-finance-main th:nth-child(2), .table-finance-main td:nth-child(2) { width: 55% !important; }
+            .table-finance-main th:nth-child(3), .table-finance-main td:nth-child(3) { width: 25% !important; }
+            .table-finance-main td:last-child { text-align: left !important; }
+
+            /* 3. تثبيت عرض أعمدة جدول الصيانة والدعم */
+            .table-maintenance th:nth-child(1), .table-maintenance td:nth-child(1) { width: 55% !important; }
+            .table-maintenance th:nth-child(2), .table-maintenance td:nth-child(2) { width: 20% !important; }
+            .table-maintenance th:nth-child(3), .table-maintenance td:nth-child(3) { width: 25% !important; }
+            .table-maintenance td:nth-child(2) { text-align: left !important; }
         }
     </style>
 </head>
@@ -382,7 +386,7 @@
             <div>
                 <p class="font-bold mb-3 text-dark-blue">موافقة العميل:</p>
                 <p>أوافق على استلام الحزمة الرقمية المتكاملة بالشروط والميزات والتسلسل المالي المذكور أعلاه.</p>
-                <p class="mt-4 text-sm font-semibold text-red-700">**ملاحظة الضريبة:** جميع الأسعار المذكورة أعلاه غير شاملة الضريبة (VAT/Tax).</p>
+                <p class="mt-4 text-sm font-semibold text-red-700">**ملاحظة الضريبة:** جميع الأسعار المذكورة أعلاه غير شاملة الضريبة .</p>
             </div>
             <div class="space-y-4 text-left">
                 <p><strong>التوقيع:</strong> ________________________</p>

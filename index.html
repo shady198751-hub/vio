@@ -72,7 +72,6 @@
         /* == أنماط الطباعة المُحسَّنة لتنسيق A4 والأفضل == */
         /* ================================================= */
 
-        /* إلغاء هوامش الورقة الافتراضية لزيادة مساحة المحتوى */
         @page {
             margin: 0 !important;
             size: auto !important;
@@ -114,8 +113,26 @@
                 display: flex !important;
                 align-items: center !important;
                 justify-content: space-between !important;
-                width: 100% !important; /* ضمان العرض الكامل */
+                width: 100% !important;
             }
+            
+            /* التحكم في توزيع عناصر الرأس الثلاثة لضمان التناسق */
+            header .flex > div:nth-child(1) { /* يمين: الشعار ومقدم العرض */
+                flex: 0 0 30% !important; 
+                display: flex !important; 
+                align-items: center !important;
+                justify-content: flex-end !important; /* محاذاة العناصر إلى اليمين داخل المساحة المخصصة */
+                text-align: right !important;
+            }
+             header .flex > div:nth-child(2) { /* المنتصف: العنوان الرئيسي */
+                flex: 1 !important; 
+                text-align: center !important;
+            }
+            header .flex > div:nth-child(3) { /* يسار: التاريخ */
+                flex: 0 0 30% !important; 
+                text-align: left !important;
+            }
+            
             .bg-accent-teal {
                 display: none !important;
             }
@@ -136,7 +153,7 @@
                 table-layout: fixed !important;
                 width: 100% !important;
                 margin-top: 0.4cm !important;
-                border-collapse: separate !important; /* إصلاح مشكلة اختفاء الحدود */
+                border-collapse: separate !important; 
                 border-spacing: 0 !important;
             }
             section {
@@ -152,7 +169,7 @@
             
             /* الألوان وجودة الحدود (تم تعزيز الحدود هنا) */
             table, th, td { 
-                border: 1px solid #444444 !important; /* تحديد الحدود بشكل صريح */
+                border: 1px solid #444444 !important; 
                 border-color: #444444 !important;
             }
             .bg-blue-50, .bg-gray-50, .bg-green-50, .bg-yellow-50, .bg-green-100 {
@@ -166,18 +183,15 @@
                 background-color: #bfbfbf !important;
             }
 
-            /* 1. تثبيت عرض أعمدة جدول الميزات الوظيفية */
+            /* تثبيت أعمدة الجداول النهائية */
             .table-features th:nth-child(1), .table-features td:nth-child(1) { width: 20% !important; }
             .table-features th:nth-child(2), .table-features td:nth-child(2) { width: 60% !important; }
             .table-features th:nth-child(3), .table-features td:nth-child(3) { width: 20% !important; }
 
-            /* 2. تثبيت عرض أعمدة جدول الشروط المالية */
             .table-finance-main th:nth-child(1), .table-finance-main td:nth-child(1) { width: 20% !important; }
             .table-finance-main th:nth-child(2), .table-finance-main td:nth-child(2) { width: 55% !important; }
             .table-finance-main th:nth-child(3), .table-finance-main td:nth-child(3) { width: 25% !important; }
-            .table-finance-main td:last-child { text-align: left !important; }
 
-            /* 3. تثبيت عرض أعمدة جدول الصيانة والدعم */
             .table-maintenance th:nth-child(1), .table-maintenance td:nth-child(1) { width: 55% !important; }
             .table-maintenance th:nth-child(2), .table-maintenance td:nth-child(2) { width: 20% !important; }
             .table-maintenance th:nth-child(3), .table-maintenance td:nth-child(3) { width: 25% !important; }
@@ -192,9 +206,9 @@
         <header class="primary-dark text-white p-6 relative">
             <div class="flex items-center justify-between pb-4">
                 
-                <div class="flex items-center w-1/4"> 
+                <div class="flex items-center w-1/4 justify-end"> 
                     <img src="https://admin.tabarakmariouteya.com/icon.ico" alt="شعار ASN Clinic Server" class="w-20 h-20 object-contain ml-4 border-2 border-white rounded-lg shadow-lg">
-                    <div>
+                    <div class="mr-2">
                         <p class="text-sm accent-teal font-semibold">مقدم من: شادي محمود</p>
                     </div>
                 </div>
@@ -386,7 +400,7 @@
             <div>
                 <p class="font-bold mb-3 text-dark-blue">موافقة العميل:</p>
                 <p>أوافق على استلام الحزمة الرقمية المتكاملة بالشروط والميزات والتسلسل المالي المذكور أعلاه.</p>
-                <p class="mt-4 text-sm font-semibold text-red-700">**ملاحظة الضريبة:** جميع الأسعار المذكورة أعلاه غير شاملة الضريبة .</p>
+                <p class="mt-4 text-sm font-semibold text-red-700">**ملاحظة الضريبة:** جميع الأسعار المذكورة أعلاه غير شاملة الضريبة (VAT/Tax).</p>
             </div>
             <div class="space-y-4 text-left">
                 <p><strong>التوقيع:</strong> ________________________</p>

@@ -14,11 +14,11 @@
         body {
             font-family: 'Almarai', sans-serif;
             background-color: #f8fafc;
-            line-height: 1.6;
+            line-height: 1.5;
         }
         .proposal-container {
-            max-width: 1200px;
-            margin: 2rem auto;
+            max-width: 1080px;
+            margin: 1.5rem auto; 
             padding: 0;
             background-color: #ffffff;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
@@ -30,34 +30,41 @@
         .text-dark-blue { color: #1a4d7d; }
         
         h2 {
-            padding-bottom: 0.5rem;
-            margin-top: 1.5rem;
+            padding-bottom: 0.4rem;
+            margin-top: 1.2rem;
             color: #1f2937;
         }
         table {
             width: 100%;
-            margin-top: 1rem;
+            margin-top: 0.8rem;
             border-collapse: collapse;
-            table-layout: fixed; /* تثبيت تنسيق الجدول */
+            table-layout: fixed; 
         }
         th, td {
-            padding: 0.75rem 1rem;
+            padding: 0.6rem 0.8rem;
             text-align: right;
         }
         th {
             font-weight: 700;
         }
+        /* تم تصغير حجم العنوان الرئيسي */
         .main-heading {
-            font-size: 1.75rem; 
+            font-size: 1.5rem; 
             font-weight: 800;
         }
         .sub-heading {
-            font-size: 1.5rem;
+            font-size: 1.3rem; 
             font-weight: 700;
         }
+        .text-xl-custom { 
+             font-size: 1rem;
+             font-weight: 700;
+        }
+
         .feature-list li {
             position: relative;
             padding-right: 1.5rem;
+            font-size: 0.95rem;
         }
         .feature-list li::before {
             content: "\f058";
@@ -69,12 +76,12 @@
         }
         
         /* ================================================= */
-        /* == أنماط الطباعة المُحسَّنة لتنسيق A4 والأفضل == */
+        /* == أنماط الطباعة المُحسَّنة لورقتين A4 == */
         /* ================================================= */
 
         @page {
-            margin: 0 !important;
-            size: auto !important;
+            size: A4; 
+            margin: 0.4cm !important; /* تقليل هامش الورقة إلى 0.4 سم */
         }
 
         @media print {
@@ -85,9 +92,10 @@
             body {
                 background-color: #ffffff !important;
                 color: #000000 !important;
-                font-size: 10pt !important;
+                font-size: 9.5pt !important;
                 margin: 0 !important;
                 padding: 0 !important;
+                line-height: 1.4 !important;
                 overflow: hidden !important;
             }
             .proposal-container {
@@ -101,87 +109,52 @@
             
             /* تنسيق الرأس والذيل كوحدات طباعة */
             header, footer {
-                padding-left: 1cm !important;
-                padding-right: 1cm !important;
+                padding-left: 0.4cm !important; /* يتطابق مع هامش الورقة */
+                padding-right: 0.4cm !important;
+                padding-top: 0.3cm !important;
+                padding-bottom: 0.3cm !important;
                 page-break-after: avoid;
             }
             header {
                 box-shadow: none !important;
                 border-bottom: 2px solid #1a4d7d;
-                padding-top: 0.5cm !important;
-                padding-bottom: 0.5cm !important;
                 display: flex !important;
                 align-items: center !important;
                 justify-content: space-between !important;
                 width: 100% !important;
             }
             
-            /* التحكم في توزيع عناصر الرأس الثلاثة لضمان التناسق */
-            header .flex > div:nth-child(1) { /* يمين: الشعار ومقدم العرض */
-                flex: 0 0 30% !important; 
-                display: flex !important; 
-                align-items: center !important;
-                justify-content: flex-end !important; /* محاذاة العناصر إلى اليمين داخل المساحة المخصصة */
-                text-align: right !important;
-            }
-             header .flex > div:nth-child(2) { /* المنتصف: العنوان الرئيسي */
-                flex: 1 !important; 
-                text-align: center !important;
-            }
-            header .flex > div:nth-child(3) { /* يسار: التاريخ */
-                flex: 0 0 30% !important; 
-                text-align: left !important;
-            }
-            
-            .bg-accent-teal {
-                display: none !important;
-            }
+            /* تقليل الهوامش الداخلية للمحتوى */
             .p-8 {
-                padding: 0.5cm 1cm !important; /* هوامش داخلية مناسبة لـ A4 */
+                padding: 0.3cm 0.4cm !important; /* تقليل البادينغ الداخلي */
             }
             
-            /* ضبط أحجام الخطوط والعناصر الأساسية */
-            .main-heading { font-size: 14pt !important; color: #ffffff !important; }
-            .sub-heading { font-size: 12pt !important; color: #000000 !important; }
-            .w-20, .h-20 { width: 35px !important; height: 35px !important; }
-            .text-xl { font-size: 14pt !important; } 
-
-            /* منع انقسام الجداول والأقسام الهامة وتثبيت عرض الجدول */
+            /* ضبط أحجام الخطوط والعناصر الأساسية للطباعة */
+            .main-heading { font-size: 12pt !important; color: #ffffff !important; }
+            .sub-heading { font-size: 11pt !important; color: #000000 !important; margin-top: 0.2cm !important; margin-bottom: 0.2cm !important;}
+            .text-xl-custom { font-size: 10pt !important; }
+            .mb-5 { margin-bottom: 0.3cm !important; } /* تقليل الهامش بعد التحية */
+            .mb-6 { margin-bottom: 0.4cm !important; } /* تقليل الهامش بين الأقسام */
+            .w-20, .h-20 { width: 30px !important; height: 30px !important; }
+            
+            /* تثبيت الجداول ومنع الانقسام */
             table {
                 page-break-inside: avoid;
                 break-inside: avoid;
                 table-layout: fixed !important;
-                width: 100% !important;
-                margin-top: 0.4cm !important;
+                margin-top: 0.2cm !important; /* تقليل الهامش العلوي للجدول */
                 border-collapse: separate !important; 
                 border-spacing: 0 !important;
             }
-            section {
-                page-break-inside: avoid;
-                break-inside: avoid;
+            th, td {
+                padding: 0.3rem 0.5rem !important; /* ضغط بادينغ الخلايا */
             }
             
-            /* تحسين رؤية أيقونة علامة الصح */
-             .feature-list li::before {
-                font-size: 12pt !important; 
-                top: 0 !important;
-            }
-            
-            /* الألوان وجودة الحدود (تم تعزيز الحدود هنا) */
-            table, th, td { 
-                border: 1px solid #444444 !important; 
-                border-color: #444444 !important;
-            }
-            .bg-blue-50, .bg-gray-50, .bg-green-50, .bg-yellow-50, .bg-green-100 {
-                background-color: #eeeeee !important;
-            }
-            .bg-gray-200 {
-                background-color: #d4d4d4 !important;
-                color: #1a4d7d !important;
-            }
-            .bg-gray-300 {
-                background-color: #bfbfbf !important;
-            }
+            /* الألوان وجودة الحدود */
+            table, th, td { border: 1px solid #444444 !important; border-color: #444444 !important; }
+            .bg-blue-50, .bg-gray-50, .bg-green-50, .bg-yellow-50, .bg-green-100 { background-color: #eeeeee !important; }
+            .bg-gray-200 { background-color: #d4d4d4 !important; color: #1a4d7d !important; }
+            .bg-gray-300 { background-color: #bfbfbf !important; }
 
             /* تثبيت أعمدة الجداول النهائية */
             .table-features th:nth-child(1), .table-features td:nth-child(1) { width: 20% !important; }
@@ -195,7 +168,6 @@
             .table-maintenance th:nth-child(1), .table-maintenance td:nth-child(1) { width: 55% !important; }
             .table-maintenance th:nth-child(2), .table-maintenance td:nth-child(2) { width: 20% !important; }
             .table-maintenance th:nth-child(3), .table-maintenance td:nth-child(3) { width: 25% !important; }
-            .table-maintenance td:nth-child(2) { text-align: left !important; }
         }
     </style>
 </head>
@@ -227,18 +199,18 @@
 
         <div class="p-8">
 
-            <div class="mb-6">
-                <p class="text-xl font-bold text-dark-blue">الساده -: مستشفي تبارك مريوطية</p>
-                <p class="mt-2 text-gray-700">تحية طيبة وبعد، يسعدنا أن نقدم لكم عرض السعر الخاص بنظام الحجز الإلكتروني المُتكامل، لتطوير وتشغيل خدماتكم الرقمية:</p>
+            <div class="mb-5">
+                <p class="text-xl-custom text-dark-blue">الساده -: مستشفي تبارك مريوطية</p>
+                <p class="mt-1 text-gray-700 text-sm">تحية طيبة وبعد، يسعدنا أن نقدم لكم عرض السعر الخاص بنظام الحجز الإلكتروني المُتكامل، لتطوير وتشغيل خدماتكم الرقمية:</p>
             </div>
             
-            <section class="mb-8">
-                <h2 class="sub-heading text-dark-blue mb-3">أولاً: ملخص الحزمة والبيئة التقنية</h2>
+            <section class="mb-6">
+                <h2 class="sub-heading text-dark-blue mb-2">أولاً: ملخص الحزمة والبيئة التقنية</h2>
                 <div class="bg-blue-50 p-4 rounded-lg border border-gray-200">
-                    <p class="text-sm font-semibold mb-3 text-dark-blue">**الدومين المعتمد:** tabarakmariouteya.com</p>
-                    <p class="text-gray-700">هذا العرض يشمل تطوير موقع المستشفى الرسمي ونظام الإدارة والحجز على خادم سحابي خاص (VPS)، مما يضمن السرعة والأمان والاحترافية.</p>
+                    <p class="text-sm font-semibold mb-2 text-dark-blue">**الدومين المعتمد:** tabarakmariouteya.com</p>
+                    <p class="text-gray-700 text-sm">هذا العرض يشمل تطوير موقع المستشفى الرسمي ونظام الإدارة والحجز على خادم سحابي خاص (VPS)، مما يضمن السرعة والأمان والاحترافية.</p>
                     
-                    <ul class="mt-4 feature-list text-gray-700 space-y-2">
+                    <ul class="mt-3 feature-list text-gray-700 space-y-1">
                         <li>**الموقع الرسمي المتكامل:** واجهة التسويق والتعريف بالخدمات والعلامة التجارية.</li>
                         <li>**نظام الإدارة والحجز:** نظام التشغيل الداخلي (لوحات المدير والطبيب)، مع نسخة سطح مكتب للموظف.</li>
                         <li>**خادم VPS مُخصص:** البنية التحتية الآمنة والمستقرة والمصممة للتحمل.</li>
@@ -246,8 +218,8 @@
                 </div>
             </section>
 
-            <section class="mb-8">
-                <h2 class="sub-heading text-dark-blue">ثانياً: الميزات الوظيفية وخدمات الدعم المشمولة</h2>
+            <section class="mb-6">
+                <h2 class="sub-heading text-dark-blue mb-2">ثانياً: الميزات الوظيفية وخدمات الدعم المشمولة</h2>
                 
                 <table class="border border-gray-300 rounded-lg overflow-hidden table-features">
                     <thead class="primary-dark text-white">
@@ -259,55 +231,54 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-semibold text-center text-dark-blue">إدارة الحجوزات</td>
-                            <td>نظام الدور الذكي والتحكم بالحد الأقصى.</td>
-                            <td>تحديث جميع بيانات الأطباء والجداول على مدار العام.</td>
+                            <td class="font-semibold text-center text-dark-blue text-sm">إدارة الحجوزات</td>
+                            <td class="text-sm">نظام الدور الذكي والتحكم بالحد الأقصى.</td>
+                            <td class="text-sm">تحديث جميع بيانات الأطباء والجداول على مدار العام.</td>
                         </tr>
                         <tr class="bg-blue-50">
-                            <td class="font-semibold text-center text-dark-blue">لوحة الطبيب</td>
-                            <td>
+                            <td class="font-semibold text-center text-dark-blue text-sm">لوحة الطبيب</td>
+                            <td class="text-sm">
                                 <strong>لوحة متابعة المواعيد (Doctor Dashboard):</strong> شاشة مخصصة للطبيب لعرض حجوزاته فقط، مع متابعة فورية لحالة الدور (Socket.IO).
                             </td>
-                            <td>---</td>
+                            <td class="text-sm">---</td>
                         </tr>
                         <tr>
-                            <td class="font-semibold text-center text-dark-blue">التحكم الداخلي</td>
-                            <td>نسخة سطح المكتب للموظف (للتحكم في الحجوزات).</td>
-                            <td>توفير نسخة سطح المكتب للعمل على أجهزة الكمبيوتر للموظفين.</td>
+                            <td class="font-semibold text-center text-dark-blue text-sm">التحكم الداخلي</td>
+                            <td class="text-sm">نسخة سطح المكتب للموظف (للتحكم في الحجوزات).</td>
+                            <td class="text-sm">توفير نسخة سطح المكتب للعمل على أجهزة الكمبيوتر للموظفين.</td>
                         </tr>
                          <tr>
-                            <td class="font-semibold text-center text-dark-blue">خدمة المريض</td>
-                            <td>**الإلغاء الذاتي**، الحجز والاستعلام أونلاين.</td>
-                            <td>دعم فني للأخطاء البرمجية الأساسية على مدار العام.</td>
+                            <td class="font-semibold text-center text-dark-blue text-sm">خدمة المريض</td>
+                            <td class="text-sm">**الإلغاء الذاتي**، الحجز والاستعلام أونلاين.</td>
+                            <td class="text-sm">دعم فني للأخطاء البرمجية الأساسية على مدار العام.</td>
                         </tr>
                         <tr>
-                            <td class="font-semibold text-center text-dark-blue">أقسام الموقع الرسمي</td>
-                            <td>
+                            <td class="font-semibold text-center text-dark-blue text-sm">أقسام الموقع الرسمي</td>
+                            <td class="text-sm">
                                 صفحات مخصصة لـ: الأقسام الطبية، الخدمات، جدول العيادات، الشركات المتعاقدة، ومن نحن.
                                 <br>
                                 **نماذج تفاعلية:** الاتصال بنا، نموذج توظيف، نموذج شكاوي.
                             </td>
-                            <td></td>
+                            <td class="text-sm"></td>
                         </tr>
                     </tbody>
                 </table>
             </section>
             
-            <section class="mb-8">
-                <h2 class="sub-heading text-dark-blue">ثالثاً: الأمان والاستقرار والبنية التحتية (الضمانات التقنية)</h2>
+            <section class="mb-6">
+                <h2 class="sub-heading text-dark-blue mb-2">ثالثاً: الأمان والاستقرار والبنية التحتية (الضمانات التقنية)</h2>
                 <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                    <ul class="feature-list pr-6 space-y-3">
-                        <li>**تشفير البيانات (HTTPS/SSL):** الموقع الرسمي ونظام الحجز يعملان بالكامل على اتصال مشفر، مما يضمن أعلى مستوى لحماية بيانات المرضى.</li>
-                        <li>**جدار الحماية المُحصّن (UFW):** تفعيل جدار حماية لرفض أي اتصال غير مصرح به على الخادم وتقليل مخاطر الهجمات الخارجية.</li>
-                        <li>**النسخ الاحتياطي الآلي:** يتم أخذ نسخة احتياطية كاملة من قاعدة البيانات يومياً (تلقائياً)، والاحتفاظ بها لمدة 7 أيام.</li>
-                        <li>**الأرشفة الآلية المجدولة:** ترحيل الحجوزات التي مضى عليها أكثر من 6 أشهر شهرياً، للحفاظ على سرعة البحث في الجدول الرئيسي.</li>
-                        <li>**استقرار النظام (PM2):** نظام مراقبة يعيد تشغيل الخادم تلقائياً وفورياً في حال حدوث أي عطل طارئ، لضمان استمرارية الخدمة.</li>
+                    <ul class="feature-list pr-6 space-y-1">
+                        <li class="text-sm">**تشفير البيانات (HTTPS/SSL):** الموقع الرسمي ونظام الحجز يعملان بالكامل على اتصال مشفر، مما يضمن أعلى مستوى لحماية بيانات المرضى.</li>
+                        <li class="text-sm">**جدار الحماية المُحصّن (UFW):** تفعيل جدار حماية لرفض أي اتصال غير مصرح به على الخادم وتقليل مخاطر الهجمات الخارجية.</li>
+                        <li class="text-sm">**النسخ الاحتياطي الآلي:** يتم أخذ نسخة احتياطية كاملة من قاعدة البيانات يومياً (تلقائياً)، والاحتفاظ بها لمدة 7 أيام.</li>
+                        <li class="text-sm">**الأرشفة الآلية المجدولة:** ترحيل الحجوزات التي مضى عليها أكثر من 6 أشهر شهرياً، للحفاظ على سرعة البحث في الجدول الرئيسي.</li>
                     </ul>
                 </div>
             </section>
             
-            <section class="mb-8">
-                <h2 class="sub-heading text-dark-blue">رابعاً: الشروط المالية والتجديد</h2>
+            <section class="mb-6">
+                <h2 class="sub-heading text-dark-blue mb-2">رابعاً: الشروط المالية والتجديد</h2>
                 
                 <table class="border border-gray-300 rounded-lg overflow-hidden table-finance-main">
                     <thead class="bg-gray-200 text-dark-blue">
@@ -319,41 +290,41 @@
                     </thead>
                     <tbody>
                          <tr class="bg-green-50">
-                            <td class="font-semibold text-center text-dark-blue">الموقع الرسمي وجداول العيادات</td>
-                            <td>خدمة تشغيل الموقع الرسمي وجداول العيادات لمدة سنتين.</td>
-                            <td class="text-left">**مجاني**</td>
+                            <td class="font-semibold text-center text-dark-blue text-sm">الموقع الرسمي وجداول العيادات</td>
+                            <td class="text-sm">خدمة تشغيل الموقع الرسمي وجداول العيادات لمدة سنتين.</td>
+                            <td class="text-left font-semibold text-sm">**مجاني**</td>
                         </tr>
                         <tr class="bg-yellow-50">
-                            <td class="font-semibold text-center text-dark-blue">مدة عقد نظام الحجز</td>
-                            <td>التعاقد على نظام الحجز الإلكتروني لمدة سنة كاملة، يتم تجديدها باتفاق الطرفين.</td>
-                            <td class="text-left">**سنة واحدة**</td>
+                            <td class="font-semibold text-center text-dark-blue text-sm">مدة عقد نظام الحجز</td>
+                            <td class="text-sm">التعاقد على نظام الحجز الإلكتروني لمدة سنة كاملة، يتم تجديدها باتفاق الطرفين.</td>
+                            <td class="text-left text-sm">**سنة واحدة**</td>
                         </tr>
                         <tr class="bg-accent-teal/50">
-                            <td class="font-semibold text-center">دفعة التوقيع (مقدم)</td>
-                            <td>مبلغ يدفع لمرة واحدة عند توقيع العقد، مقابل إطلاق المشروع وتجهيز البنية التحتية.</td>
-                            <td class="text-left">**15,000 ج.م.**</td>
+                            <td class="font-semibold text-center text-sm">دفعة التوقيع (مقدم)</td>
+                            <td class="text-sm">مبلغ يُدفع لمرة واحدة عند توقيع العقد، مقابل إطلاق المشروع وتغطية تكاليف البنية التحتية، التي تم تجهيزها مسبقاً مع النظام الجاهز للعمل.</td>
+                            <td class="text-left font-semibold text-sm">**15,000 ج.م.**</td>
                         </tr>
                         <tr>
-                            <td class="font-semibold text-center">فترة التجربة</td>
-                            <td>تشغيل النظام بالكامل (بما في ذلك الحجز الإلكتروني) لفترة تجريبية تبدأ من تاريخ التوقيع.</td>
-                            <td class="text-left">**شهر واحد**</td>
+                            <td class="font-semibold text-center text-sm">فترة التجربة</td>
+                            <td class="text-sm">تشغيل النظام بالكامل (بما في ذلك الحجز الإلكتروني) لفترة تجريبية تبدأ من تاريخ التوقيع.</td>
+                            <td class="text-left text-sm">**شهر واحد**</td>
                         </tr>
                          <tr class="bg-accent-teal/50">
-                            <td class="font-semibold text-center">دفعة إكمال المشروع</td>
-                            <td>المبلغ المتبقي المستحق بعد انتهاء فترة التجربة وتأكيد العميل من عمل النظام بشكل كامل. تمثل شراء نسخة الحجز الإلكتروني لمدة سنة.</td>
-                            <td class="text-left">**70,000 ج.م.**</td>
+                            <td class="font-semibold text-center text-sm">دفعة إكمال المشروع</td>
+                            <td class="text-sm">المبلغ المتبقي المستحق بعد انتهاء فترة التجربة وتأكيد العميل من عمل النظام بشكل كامل. تمثل شراء نسخة الحجز الإلكتروني لمدة سنة.</td>
+                            <td class="text-left font-semibold text-sm">**70,000 ج.م.**</td>
                         </tr>
                         <tr class="font-extrabold text-lg text-dark-blue bg-gray-200">
-                            <td colspan="2" class="text-right">الإجمالي السنوي لترخيص وتنفيذ المشروع (السنة الأولى)</td>
-                            <td class="text-left">**85,000 ج.م.**</td>
+                            <td colspan="2" class="text-right text-sm">الإجمالي السنوي لترخيص وتنفيذ المشروع (السنة الأولى)</td>
+                            <td class="text-left text-sm">**85,000 ج.م.**</td>
                         </tr>
                     </tbody>
                 </table>
             </section>
             
-            <section class="mb-8">
-                <h2 class="sub-heading text-dark-blue">خامساً: تكاليف الصيانة والدعم والتجديد</h2>
-                <p class="text-sm text-red-600 mb-4">
+            <section class="mb-6">
+                <h2 class="sub-heading text-dark-blue mb-2">خامساً: تكاليف الصيانة والدعم والتجديد</h2>
+                <p class="text-sm text-red-600 mb-2">
                     **ملاحظة هامة:** هذا المبلغ غير شامل أي إضافة خدمية أو تطوير بناءً على رؤية العميل (مثل ربط خدمات خارجية أو ميزات برمجية جديدة). أي تطوير إضافي سيتم احتسابه بشكل منفصل.
                 </p>
                 
@@ -367,29 +338,29 @@
                     </thead>
                     <tbody>
                         <tr class="bg-gray-100">
-                            <td class="font-semibold text-dark-blue">الصيانة الربع سنوية (للسنة الأولى)</td>
-                            <td class="text-left">**6,000 ج.م. مصري**</td>
-                            <td class="text-left">كل ثلاثة أشهر</td>
+                            <td class="font-semibold text-dark-blue text-sm">الصيانة الربع سنوية (للسنة الأولى)</td>
+                            <td class="text-left text-sm">**6,000 ج.م. مصري**</td>
+                            <td class="text-left text-sm">كل ثلاثة أشهر</td>
                         </tr>
                         <tr class="font-bold text-dark-blue bg-gray-200">
-                            <td>الإجمالي السنوي للصيانة الدورية (السنة الأولى)</td>
-                            <td class="text-left">**24,000 ج.م. مصري**</td>
-                            <td></td>
+                            <td class="text-sm">الإجمالي السنوي للصيانة الدورية (السنة الأولى)</td>
+                            <td class="text-left text-sm">**24,000 ج.م. مصري**</td>
+                            <td class="text-sm"></td>
                         </tr>
                          <tr class="bg-green-100">
-                            <td class="font-semibold text-dark-blue">تجديد ترخيص نظام الحجز (بدءاً من السنة الثانية)</td>
-                            <td class="text-left">**30,000 ج.م. مصري**</td>
-                            <td class="text-left">سنوياً</td>
+                            <td class="font-semibold text-dark-blue text-sm">تجديد ترخيص نظام الحجز (بدءاً من السنة الثانية)</td>
+                            <td class="text-left text-sm">**30,000 ج.م. مصري**</td>
+                            <td class="text-left text-sm">سنوياً</td>
                         </tr>
                         <tr class="bg-green-50">
-                            <td class="font-semibold text-dark-blue">الصيانة الربع سنوية (بدءاً من السنة الثانية)</td>
-                            <td class="text-left">**7,000 ج.م. مصري**</td>
-                            <td class="text-left">كل ثلاثة أشهر</td>
+                            <td class="font-semibold text-dark-blue text-sm">الصيانة الربع سنوية (بدءاً من السنة الثانية)</td>
+                            <td class="text-left text-sm">**7,000 ج.م. مصري**</td>
+                            <td class="text-left text-sm">كل ثلاثة أشهر</td>
                         </tr>
                         <tr class="font-extrabold text-lg text-dark-blue bg-gray-300">
-                            <td>الإجمالي السنوي المتوقع (للسنة الثانية وما بعدها)</td>
-                            <td class="text-left">**58,000 ج.م. مصري**</td>
-                            <td></td>
+                            <td class="text-sm">الإجمالي السنوي المتوقع (للسنة الثانية وما بعدها)</td>
+                            <td class="text-left text-sm">**58,000 ج.م. مصري**</td>
+                            <td class="text-sm"></td>
                         </tr>
                     </tbody>
                 </table>
@@ -399,12 +370,12 @@
         <footer class="pt-6 pb-6 px-8 border-t border-gray-300 flex justify-between text-gray-700">
             <div>
                 <p class="font-bold mb-3 text-dark-blue">موافقة العميل:</p>
-                <p>أوافق على استلام الحزمة الرقمية المتكاملة بالشروط والميزات والتسلسل المالي المذكور أعلاه.</p>
-                <p class="mt-4 text-sm font-semibold text-red-700">**ملاحظة الضريبة:** جميع الأسعار المذكورة أعلاه غير شاملة الضريبة.</p>
+                <p class="text-sm">أوافق على استلام الحزمة الرقمية المتكاملة بالشروط والميزات والتسلسل المالي المذكور أعلاه.</p>
+                <p class="mt-4 text-sm font-semibold text-red-700">**ملاحظة الضريبة:** جميع الأسعار المذكورة أعلاه غير شاملة الضريبة .</p>
             </div>
             <div class="space-y-4 text-left">
-                <p><strong>التوقيع:</strong> ________________________</p>
-                <p><strong>التاريخ:</strong> ________________________</p>
+                <p class="text-sm"><strong>التوقيع:</strong> ________________________</p>
+                <p class="text-sm"><strong>التاريخ:</strong> ________________________</p>
             </div>
         </footer>
 
@@ -412,4 +383,3 @@
 
 </body>
 </html>
-
